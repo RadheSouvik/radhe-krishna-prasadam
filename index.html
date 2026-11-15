@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>রাধে কৃষ্ণ প্রসাদম | সম্পূর্ণ নিরামিষ ও সাত্ত্বিক খাবার - টাকাগাছ, কোচবিহার</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Hind Siliguri', sans-serif;
+      background-color: #fffbf2;
+      color: #2d1810;
+      scroll-behavior: smooth;
+    }
+    .saffron-gradient {
+      background: linear-gradient(135deg, #b45309 0%, #d97706 50%, #f59e0b 100%);
+    }
+    .maroon-bg {
+      background-color: #5c1916;
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Top Info Bar -->
+  <div class="maroon-bg text-amber-100 text-xs sm:text-sm py-2 px-4">
+    <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span>🙏 হরে কৃষ্ণ! সম্পূর্ণ নিরামিষ (পিঁয়াজ-রসুন ছাড়া) শুদ্ধ কৃষ্ণ প্রসাদ</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <span>📍 <span id="topLocation">টাকাগাছ, কোচবিহার</span></span>
+        <a id="topPhoneLink" href="tel:8609386272" class="font-semibold text-amber-300 hover:underline">📞 8609386272</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-amber-200 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+      <a href="#" class="flex items-center gap-3">
+        <img id="navLogo" src="" alt="Logo" class="w-11 h-11 rounded-full object-cover border-2 border-amber-500 hidden" />
+        <div id="navLogoFallback" class="w-11 h-11 rounded-full saffron-gradient flex items-center justify-center text-white text-xl font-bold shadow">
+          🪷
+        </div>
+        <div>
+          <h1 id="navBrandName" class="text-xl sm:text-2xl font-bold text-amber-900 leading-tight">রাধে কৃষ্ণ প্রসাদম</h1>
+          <p class="text-xs text-amber-700 font-medium">শুদ্ধ সাত্ত্বিক নিরামিষ রেস্টুরেন্ট</p>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 font-semibold text-amber-900">
+        <a href="#about" class="hover:text-amber-600 transition">আমাদের বৈশিষ্ট্য</a>
+        <a href="#menu" class="hover:text-amber-600 transition">খাবারের মেনু</a>
+        <a href="#plans" class="hover:text-amber-600 transition">মান্থলি প্যাকেজ</a>
+        <a href="#contact" class="hover:text-amber-600 transition">যোগাযোগ</a>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <span id="storeStatusBadge" class="hidden sm:inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">
+          ● খোলা আছে
+        </span>
+        <button onclick="openCartModal()" class="relative saffron-gradient text-white px-3.5 py-2 rounded-xl font-bold shadow hover:opacity-95 transition flex items-center gap-2 text-sm sm:text-base">
+          <span>🛒 কার্ট</span>
+          <span id="cartCountBadge" class="bg-white text-amber-800 text-xs font-extrabold px-2 py-0.5 rounded-full">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Demo Notice Banner (Controlled from Admin) -->
+  <div id="demoNoticeBanner" class="bg-amber-100 border-b border-amber-300 text-amber-900 text-center text-xs sm:text-sm py-2 px-4 font-medium">
+    ℹ️ বর্তমানে কিছু <strong>ডেমো মেনু</strong> প্রদর্শিত হচ্ছে — পরবর্তীতে রেস্টুরেন্টের ফাইনাল মেনু আপডেট করা হবে।
+  </div>
+
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-amber-50 via-orange-50 to-amber-100 border-b border-amber-200">
+    <div class="max-w-6xl mx-auto px-4 py-10 sm:py-16 grid md:grid-cols-2 gap-8 items-center">
+      <div class="space-y-5">
+        <div class="inline-flex flex-wrap gap-2">
+          <span class="bg-emerald-100 text-emerald-900 border border-emerald-300 text-xs font-bold px-3 py-1 rounded-full">🌿 ১০০% নিরামিষ (পিঁয়াজ-রসুন ছাড়া)</span>
+          <span class="bg-amber-100 text-amber-900 border border-amber-300 text-xs font-bold px-3 py-1 rounded-full">🙏 শুদ্ধ কৃষ্ণ ভক্ত দ্বারা রান্না</span>
+        </div>
+
+        <h2 id="heroTitle" class="text-3xl sm:text-5xl font-bold text-amber-950 leading-tight">
+          ভক্তি ও ভালোবাসায় রান্না করা শুদ্ধ <span class="text-amber-600">কৃষ্ণ প্রসাদ</span>
+        </h2>
+
+        <p id="heroSubtitle" class="text-base sm:text-lg text-amber-900/85 leading-relaxed">
+          কোচবিহারের টাকাগাছে অবস্থিত <strong>রাধে কৃষ্ণ প্রসাদম</strong>-এ পাওয়া যায় সম্পূর্ণ পিঁয়াজ-রসুন মুক্ত, প্রসাদভোজী কৃষ্ণ ভক্তদের দ্বারা প্রস্তুত সাত্ত্বিক খাবার। রেস্টুরেন্টে এসে বসে খাওয়ার পাশাপাশি হোম ডেলিভারি ও মাসিক টিফিন প্যাকেজের সুব্যবস্থা রয়েছে।
+        </p>
+
+        <div class="flex flex-wrap gap-3 pt-1">
+          <a href="#menu" class="saffron-gradient text-white font-bold px-6 py-3 rounded-xl shadow-lg hover:scale-[1.02] transition">
+            🍽️ মেনু দেখুন ও অর্ডার করুন
+          </a>
+          <a href="#plans" class="bg-white border-2 border-amber-600 text-amber-800 font-bold px-6 py-3 rounded-xl hover:bg-amber-50 transition">
+            📅 মান্থলি প্যাকেজ দেখুন
+          </a>
+        </div>
+
+        <div class="grid grid-cols-3 gap-3 pt-3 text-center sm:text-left">
+          <div class="bg-white/80 p-3 rounded-xl border border-amber-200">
+            <div class="text-lg font-bold text-amber-800">🛵 হোম ডেলিভারি</div>
+            <div id="heroDeliveryText" class="text-xs text-amber-700">চার্জ মাত্র ১০-২০ টাকা</div>
+          </div>
+          <div class="bg-white/80 p-3 rounded-xl border border-amber-200">
+            <div class="text-lg font-bold text-amber-800">🪑 বসে খাওয়া</div>
+            <div class="text-xs text-amber-700">সুন্দর ও শান্ত পরিবেশ</div>
+          </div>
+          <div class="bg-white/80 p-3 rounded-xl border border-amber-200">
+            <div class="text-lg font-bold text-amber-800">🍱 মান্থলি প্ল্যান</div>
+            <div class="text-xs text-amber-700">সকাল, দুপুর ও রাত</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative">
+        <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/3] bg-amber-200">
+          <img id="heroImage" src="" alt="রাধে কৃষ্ণ প্রসাদম স্পেশাল থালি" class="w-full h-full object-cover" />
+        </div>
+        <div class="absolute -bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:w-72 bg-white p-3.5 rounded-2xl shadow-xl border border-amber-200 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-xl">📞</div>
+          <div>
+            <div class="text-xs text-amber-700 font-semibold">ফোনে অর্ডার করতে কল করুন</div>
+            <div id="heroPhones" class="text-sm font-bold text-amber-950">8609386272 / 8637812457</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Purity & Services Section -->
+  <section id="about" class="max-w-6xl mx-auto px-4 py-12 sm:py-16">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <span class="text-amber-600 font-bold text-sm uppercase tracking-wider">আমাদের বিশেষত্ব</span>
+      <h3 class="text-2xl sm:text-3xl font-bold text-amber-950 mt-1">কেন রাধে কৃষ্ণ প্রসাদম সবার থেকে আলাদা?</h3>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 items-center mb-10">
+      <div class="rounded-2xl overflow-hidden shadow-lg border border-amber-200 aspect-[16/10] bg-amber-100">
+        <img id="aboutImage" src="" alt="আমাদের শুদ্ধ রান্নাঘর" class="w-full h-full object-cover" />
+      </div>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="bg-white p-5 rounded-2xl border border-amber-200 shadow-sm">
+          <div class="text-2xl mb-2">🧄❌</div>
+          <h4 class="font-bold text-lg text-amber-900">পিঁয়াজ ও রসুন বর্জিত</h4>
+          <p class="text-sm text-amber-800/80 mt-1">সম্পূর্ণ সাত্ত্বিক ও ১০০% নিরামিষ উপকরণে রান্না করা হয়।</p>
+        </div>
+        <div class="bg-white p-5 rounded-2xl border border-amber-200 shadow-sm">
+          <div class="text-2xl mb-2">🙏</div>
+          <h4 class="font-bold text-lg text-amber-900">ভক্ত দ্বারা প্রস্তুত</h4>
+          <p class="text-sm text-amber-800/80 mt-1">শুদ্ধ কৃষ্ণ ভক্ত এবং প্রসাদভোজী ভক্তগণ পরম নিষ্ঠার সাথে রান্না করেন।</p>
+        </div>
+        <div class="bg-white p-5 rounded-2xl border border-amber-200 shadow-sm">
+          <div class="text-2xl mb-2">🛵</div>
+          <h4 class="font-bold text-lg text-amber-900">সাশ্রয়ী হোম ডেলিভারি</h4>
+          <p class="text-sm text-amber-800/80 mt-1">টাকাগাছ ও কোচবিহারে দূরত্ব অনুযায়ী মাত্র ১০ থেকে ২০ টাকা চার্জে ডেলিভারি।</p>
+        </div>
+        <div class="bg-white p-5 rounded-2xl border border-amber-200 shadow-sm">
+          <div class="text-2xl mb-2">🍽️</div>
+          <h4 class="font-bold text-lg text-amber-900">রেস্টুরেন্টে বসে খাওয়া</h4>
+          <p class="text-sm text-amber-800/80 mt-1">পরিবার ও বন্ধুদের নিয়ে আমাদের রেস্টুরেন্টে এসে তৃপ্তি সহকারে প্রসাদ গ্রহণ করুন।</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dine-in Highlight Card -->
+    <div class="bg-white rounded-3xl border border-amber-200 shadow-md overflow-hidden grid md:grid-cols-3">
+      <div class="md:col-span-1 aspect-[4/3] md:aspect-auto bg-amber-100">
+        <img id="dineInImage" src="" alt="রেস্টুরেন্ট ডাইনিং" class="w-full h-full object-cover" />
+      </div>
+      <div class="md:col-span-2 p-6 sm:p-8 flex flex-col justify-center">
+        <span class="inline-block w-fit bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full mb-2">ডাইনিং ও টেকঅ্যাওয়ে</span>
+        <h4 class="text-2xl font-bold text-amber-950">রেস্টুরেন্টে এসে বসে খাওয়ার সুব্যবস্থা</h4>
+        <p class="text-amber-800/90 mt-2">
+          আমাদের ঠিকানা: <strong id="aboutLocation">টাকাগাছ, কোচবিহার</strong>। আপনি চাইলে সরাসরি রেস্টুরেন্টে এসে গরম গরম প্রসাদ গ্রহণ করতে পারেন, অথবা অনলাইনে আগে থেকেই অর্ডার বুক করে রাখতে পারেন।
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <section id="menu" class="bg-amber-50/70 border-y border-amber-200 py-12 sm:py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+        <div>
+          <span class="text-amber-600 font-bold text-sm">সাত্ত্বিক খাদ্য তালিকা</span>
+          <h3 class="text-2xl sm:text-3xl font-bold text-amber-950">আমাদের আজকের মেনু</h3>
+        </div>
+        <div class="w-full md:w-72">
+          <input id="menuSearch" type="text" placeholder="🔍 খাবার খুঁজুন (যেমন: থালি, খিচুড়ি)..." class="w-full px-4 py-2.5 rounded-xl border border-amber-300 bg-white focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm" />
+        </div>
+      </div>
+
+      <!-- Category Tabs -->
+      <div id="categoryTabs" class="flex gap-2 overflow-x-auto no-scrollbar pb-4 mb-6">
+        <button onclick="filterCategory('all')" class="cat-btn active px-4 py-2 rounded-full text-sm font-bold whitespace-nowrap bg-amber-600 text-white shadow">সব খাবার</button>
+        <button onclick="filterCategory('থালি')" class="cat-btn px-4 py-2 rounded-full text-sm font-bold whitespace-nowrap bg-white text-amber-900 border border-amber-300 hover:bg-amber-100">প্রসাদ থালি</button>
+        <button onclick="filterCategory('সকালের জলখাবার')" class="cat-btn px-4 py-2 rounded-full text-sm font-bold whitespace-nowrap bg-white text-amber-900 border border-amber-300 hover:bg-amber-100">সকালের জলখাবার</button>
+        <button onclick="filterCategory('দুপুর ও রাত')" class="cat-btn px-4 py-2 rounded-full text-sm font-bold whitespace-nowrap bg-white text-amber-900 border border-amber-300 hover:bg-amber-100">দুপুর ও রাত</button>
+        <button onclick="filterCategory('মিষ্টি ও প্রসাদ')" class="cat-btn px-4 py-2 rounded-full text-sm font-bold whitespace-nowrap bg-white text-amber-900 border border-amber-300 hover:bg-amber-100">মিষ্টি ও প্রসাদ</button>
+      </div>
+
+      <!-- Menu Grid -->
+      <div id="menuGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Populated dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Monthly Subscription Plans Section -->
+  <section id="plans" class="max-w-6xl mx-auto px-4 py-12 sm:py-16">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <span class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full">মাসিক টিফিন ও ভোজনের ব্যবস্থা</span>
+      <h3 class="text-2xl sm:text-3xl font-bold text-amber-950 mt-2">মান্থলি প্যাকেজ (Monthly Plans)</h3>
+      <p class="text-amber-800/85 mt-2 text-sm sm:text-base">
+        ছাত্র-ছাত্রী, চাকরিজীবী বা পরিবারের জন্য প্রতিদিন তাজা নিরামিষ প্রসাদ! সকাল, দুপুর এবং রাতের জন্য আলাদা আলাদা মান্থলি প্ল্যান রয়েছে।
+      </p>
+    </div>
+
+    <div id="plansGrid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Populated dynamically -->
+    </div>
+  </section>
+
+  <!-- Contact & Footer -->
+  <footer id="contact" class="maroon-bg text-amber-100 mt-auto">
+    <div class="max-w-6xl mx-auto px-4 py-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div>
+        <h4 id="footerBrandName" class="text-2xl font-bold text-amber-300">রাধে কৃষ্ণ প্রসাদম</h4>
+        <p class="text-sm text-amber-100/80 mt-2 leading-relaxed">
+          সম্পূর্ণ নিরামিষ, পিঁয়াজ ও রসুন ছাড়া, শুদ্ধ কৃষ্ণ ভক্ত ও প্রসাদভোজী ভক্ত দ্বারা রান্না করা পবিত্র খাবার।
+        </p>
+      </div>
+
+      <div>
+        <h5 class="font-bold text-lg text-amber-300 mb-3">যোগাযোগ ও ঠিকানা</h5>
+        <ul class="space-y-2 text-sm">
+          <li>📍 ঠিকানা: <span id="footerLocation">টাকাগাছ, কোচবিহার</span></li>
+          <li>📞 মোবাইল ১: <a id="footerPhone1" href="tel:8609386272" class="text-amber-300 font-semibold hover:underline">8609386272</a></li>
+          <li>📞 মোবাইল ২: <a id="footerPhone2" href="tel:8637812457" class="text-amber-300 font-semibold hover:underline">8637812457</a></li>
+          <li>🛵 হোম ডেলিভারি চার্জ: <span id="footerDelivery">১০ - ২০ টাকা (লোকেশন অনুযায়ী)</span></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="font-bold text-lg text-amber-300 mb-3">দ্রুত সেবা</h5>
+        <div class="flex flex-col gap-2 text-sm">
+          <a href="#menu" class="hover:text-amber-300">→ মেনু থেকে অর্ডার করুন</a>
+          <a href="#plans" class="hover:text-amber-300">→ মান্থলি প্যাকেজ নিন</a>
+          <a id="footerWhatsapp" href="https://wa.me/918609386272" target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2.5 rounded-xl w-fit mt-2 transition">
+            💬 WhatsApp-এ কথা বলুন
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-amber-900/60 py-4 text-center text-xs text-amber-200/75 px-4">
+      © <span id="yearNow"></span> রাধে কৃষ্ণ প্রসাদম | টাকাগাছ, কোচবিহার — সর্বদা কৃষ্ণ প্রসাদ গ্রহণ করুন 🙏
+    </div>
+  </footer>
+
+  <!-- Floating Mobile Cart Bar -->
+  <div id="floatingCartBar" class="fixed bottom-4 left-4 right-4 z-30 hidden md:hidden">
+    <button onclick="openCartModal()" class="w-full saffron-gradient text-white py-3.5 px-5 rounded-2xl shadow-2xl flex items-center justify-between font-bold">
+      <span>🛒 কার্টে <span id="mobileCartCount">0</span> টি আইটেম</span>
+      <span>দেখুন ও অর্ডার করুন →</span>
+    </button>
+  </div>
+
+  <!-- Cart & Checkout Modal -->
+  <div id="cartModal" class="fixed inset-0 z-50 bg-black/60 hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-amber-200">
+      <div class="sticky top-0 bg-white border-b border-amber-100 px-6 py-4 flex items-center justify-between">
+        <h3 class="text-xl font-bold text-amber-950">🛒 আপনার অর্ডার কার্ট</h3>
+        <button onclick="closeCartModal()" class="text-gray-500 hover:text-red-600 text-2xl leading-none">&times;</button>
+      </div>
+
+      <div class="p-6 space-y-5">
+        <div id="cartItemsList" class="space-y-3"></div>
+
+        <div id="cartEmptyMsg" class="text-center py-8 text-amber-800 hidden">
+          <div class="text-4xl mb-2">🍽️</div>
+          <p class="font-semibold">আপনার কার্ট এখন খালি। মেনু থেকে খাবার যোগ করুন!</p>
+        </div>
+
+        <form id="checkoutForm" class="space-y-4 hidden border-t border-amber-100 pt-4">
+          <div>
+            <label class="block text-sm font-bold text-amber-950 mb-1.5">খাবার কীভাবে নিতে চান?</label>
+            <div class="grid grid-cols-2 gap-3">
+              <label class="cursor-pointer border-2 border-amber-300 rounded-xl p-3 flex items-center gap-2 has-[:checked]:border-amber-600 has-[:checked]:bg-amber-50">
+                <input type="radio" name="orderType" value="হোম ডেলিভারি" checked onchange="toggleOrderType()" class="accent-amber-600" />
+                <div>
+                  <div class="font-bold text-sm">🛵 হোম ডেলিভারি</div>
+                  <div class="text-xs text-amber-700">চার্জ ₹১০ - ₹২০</div>
+                </div>
+              </label>
+              <label class="cursor-pointer border-2 border-amber-300 rounded-xl p-3 flex items-center gap-2 has-[:checked]:border-amber-600 has-[:checked]:bg-amber-50">
+                <input type="radio" name="orderType" value="রেস্টুরেন্টে বসে খাব" onchange="toggleOrderType()" class="accent-amber-600" />
+                <div>
+                  <div class="font-bold text-sm">🪑 রেস্টুরেন্টে বসে</div>
+                  <div class="text-xs text-emerald-700">ডেলিভারি চার্জ ফ্রি</div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <div id="deliveryZoneBox">
+            <label class="block text-sm font-bold text-amber-950 mb-1">ডেলিভারি এলাকা (লোকেশন অনুযায়ী চার্জ)</label>
+            <select id="deliveryChargeSelect" onchange="updateCartTotals()" class="w-full px-3.5 py-2.5 rounded-xl border border-amber-300 bg-white text-sm">
+              <option value="10">টাকাগাছ ও কাছাকাছি এলাকা (+₹১০ ডেলিভারি চার্জ)</option>
+              <option value="15">মাঝারি দূরত্ব, কোচবিহার (+₹১৫ ডেলিভারি চার্জ)</option>
+              <option value="20">কোচবিহার শহর ও দূরবর্তী এলাকা (+₹২০ ডেলিভারি চার্জ)</option>
+            </select>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-sm font-bold text-amber-950 mb-1">আপনার নাম *</label>
+              <input id="custName" type="text" required placeholder="যেমন: সুমন দাস" class="w-full px-3.5 py-2.5 rounded-xl border border-amber-300 text-sm" />
+            </div>
+            <div>
+              <label class="block text-sm font-bold text-amber-950 mb-1">মোবাইল নম্বর *</label>
+              <input id="custPhone" type="tel" required placeholder="10 সংখ্যার নম্বর" class="w-full px-3.5 py-2.5 rounded-xl border border-amber-300 text-sm" />
+            </div>
+          </div>
+
+          <div id="addressBox">
+            <label class="block text-sm font-bold text-amber-950 mb-1">ডেলিভারির সম্পূর্ণ ঠিকানা *</label>
+            <textarea id="custAddress" rows="2" required placeholder="বাড়ির নম্বর, পাড়া/রাস্তা, ল্যান্ডমার্ক..." class="w-full px-3.5 py-2.5 rounded-xl border border-amber-300 text-sm"></textarea>
+          </div>
+
+          <div>
+            <label class="block text-sm font-bold text-amber-950 mb-1">বিশেষ কোনো নির্দেশনা (ঐচ্ছিক)</label>
+            <input id="custNote" type="text" placeholder="যেমন: ঝাল কম দেবেন / দুপুর ১টায় আসব" class="w-full px-3.5 py-2.5 rounded-xl border border-amber-300 text-sm" />
+          </div>
+
+          <div class="bg-amber-50 p-4 rounded-2xl border border-amber-200 space-y-1.5 text-sm">
+            <div class="flex justify-between"><span>খাবারের মোট দাম:</span><span id="subtotalText" class="font-bold">₹0</span></div>
+            <div class="flex justify-between"><span>ডেলিভারি চার্জ:</span><span id="deliveryText" class="font-bold">₹10</span></div>
+            <div class="flex justify-between text-base font-extrabold text-amber-950 border-t border-amber-200 pt-2">
+              <span>সর্বমোট বিল:</span><span id="grandTotalText">₹0</span>
+            </div>
+          </div>
+
+          <button type="submit" id="placeOrderBtn" class="w-full saffron-gradient text-white font-bold py-3.5 rounded-xl shadow-lg hover:opacity-95 transition">
+            ✅ অর্ডার কনফার্ম করুন
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Monthly Plan Booking Modal -->
+  <div id="planModal" class="fixed inset-0 z-50 bg-black/60 hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full shadow-2xl border border-amber-200 overflow-hidden">
+      <div class="saffron-gradient text-white px-6 py-4 flex items-center justify-between">
+        <div>
+          <h3 class="text-lg font-bold">📅 মান্থলি প্যাকেজ বুকিং</h3>
+          <p id="selectedPlanTitle" class="text-xs text-amber-100"></p>
+        </div>
+        <button onclick="closePlanModal()" class="text-white text-2xl leading-none">&times;</button>
+      </div>
+      <form id="planBookingForm" class="p-6 space-y-4">
+        <input type="hidden" id="selectedPlanId" />
+        <input type="hidden" id="selectedPlanName" />
+        <input type="hidden" id="selectedPlanPrice" />
+
+        <div>
+          <label class="block text-sm font-bold text-amber-950 mb-1">আপনার নাম *</label>
+          <input id="planCustName" type="text" required placeholder="আপনার পুরো নাম লিখুন" class="w-full px-3.5 py-2.5 rounded-xl border border-amber-300 text-sm" />
+        </div>
+        <div>
+          <label class="block text-sm font-bold text-amber-950 mb-1">মোবাইল নম্বর *</label>
+          <input id="planCustPhone" type="tel" required placeholder="10 সংখ্যার মোবাইল নম্বর" class="w-full px-3.5 py-2.5 rounded-xl border border-amber-300 text-sm" />
+        </div>
+        <div>
+          <label class="block text-sm font-bold text-amber-950 mb-1">সেবা নেওয়ার মাধ্যম *</label>
+          <select id="planServiceMode" class="w-full px-3.5 py-2.5 rounded-xl border border-amber-300 bg-white text-sm">
+            <option value="হোম ডেলিভারি">হোম ডেলিভারি (টাকাগাছ / কোচবিহার)</option>
+            <option value="রেস্টুরেন্টে এসে খাব">প্রতিদিন রেস্টুরেন্টে এসে খাব</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-bold text-amber-950 mb-1">ঠিকানা / এলাকার নাম *</label>
+          <textarea id="planCustAddress" rows="2" required placeholder="টাকাগাছ / কোচবিহারের ঠিকানা..." class="w-full px-3.5 py-2.5 rounded-xl border border-amber-300 text-sm"></textarea>
+        </div>
+        <div>
+          <label class="block text-sm font-bold text-amber-950 mb-1">কবে থেকে শুরু করতে চান?</label>
+          <input id="planStartDate" type="date" required class="w-full px-3.5 py-2.5 rounded-xl border border-amber-300 text-sm" />
+        </div>
+        <button type="submit" id="submitPlanBtn" class="w-full saffron-gradient text-white font-bold py-3 rounded-xl shadow-lg hover:opacity-95 transition">
+          🙏 মান্থলি প্ল্যান রিকোয়েস্ট পাঠান
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div id="successModal" class="fixed inset-0 z-50 bg-black/60 hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 text-center shadow-2xl border border-amber-200 space-y-4">
+      <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-3xl mx-auto">✅</div>
+      <h3 class="text-2xl font-bold text-amber-950">হরে কৃষ্ণ! অর্ডার সফল হয়েছে</h3>
+      <p id="successMsgText" class="text-sm text-amber-800 leading-relaxed"></p>
+      <div class="flex flex-col gap-2 pt-2">
+        <a id="successWhatsappBtn" href="#" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl shadow transition">
+          💬 WhatsApp-এ অর্ডার মেসেজ পাঠান
+        </a>
+        <button onclick="closeSuccessModal()" class="bg-amber-100 hover:bg-amber-200 text-amber-900 font-bold py-2.5 rounded-xl transition">
+          ঠিক আছে
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-app.js";
+    import { getFirestore, collection, doc, onSnapshot, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-firestore.js";
+
+    // =========================================================================
+    // 🔥 এখানে আপনার Google Firebase Config বসান (index.html ও admin.html দুটোতেই একই হবে)
+    // =========================================================================
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_PROJECT_ID.firebasestorage.app",
+      messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+
+    const isFirebaseConfigured = firebaseConfig.apiKey && !firebaseConfig.apiKey.includes("YOUR_API_KEY");
+
+    // Fallback SVG Data URI (ছবি না থাকলে বা লিংক ভুল হলে যেন ভাঙা ছবি না দেখায়)
+    const FALLBACK_SVG = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(`
+      <svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400">
+        <rect width="600" height="400" fill="#fef3c7"/>
+        <circle cx="300" cy="180" r="85" fill="#f59e0b" opacity="0.25"/>
+        <text x="300" y="195" font-size="64" text-anchor="middle">🍛</text>
+        <text x="300" y="265" font-family="sans-serif" font-size="24" font-weight="bold" fill="#78350f" text-anchor="middle">রাধে কৃষ্ণ প্রসাদম</text>
+        <text x="300" y="295" font-family="sans-serif" font-size="15" fill="#92400e" text-anchor="middle">শুদ্ধ নিরামিষ কৃষ্ণ প্রসাদ</text>
+      </svg>
+    `);
+
+    // Default Demo Data (Firebase কানেক্ট করার আগে বা ডেমো হিসেবে দেখাবে)
+    let storeSettings = {
+      brandName: "রাধে কৃষ্ণ প্রসাদম",
+      location: "টাকাগাছ, কোচবিহার",
+      phone1: "8609386272",
+      phone2: "8637812457",
+      whatsapp: "918609386272",
+      deliveryInfo: "১০ - ২০ টাকা (লোকেশন অনুযায়ী)",
+      isOpen: true,
+      showDemoNotice: true,
+      logoUrl: "",
+      heroImageUrl: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=900&q=80",
+      aboutImageUrl: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=900&q=80",
+      dineInImageUrl: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80"
+    };
+
+    let menuItems = [
+      { id: "d1", name: "মহাপ্রসাদম স্পেশাল থালি", category: "থালি", price: 120, desc: "গরম ভাত, মুগ ডাল, আলু ভাজা, পনির সবজি, মিক্স ভেজ, চাটনি, পায়েস ও পাঁপড় (পিঁয়াজ-রসুন ছাড়া)।", imageUrl: "https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=700&q=80", available: true },
+      { id: "d2", name: "নিত্য সেবা সাধারণ থালি", category: "থালি", price: 70, desc: "ভাত, শুদ্ধ মুগ ডাল, আলু ভাজা, একটি নিরামিষ তরকারি ও টমেটো চাটনি।", imageUrl: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=700&q=80", available: true },
+      { id: "d3", name: "সকালের লুচি ও ছোলার ডাল", category: "সকালের জলখাবার", price: 50, desc: "৫টি গরম ফুলকো লুচি, শুদ্ধ ছোলার ডাল ও মিষ্টি (সকালের সাত্ত্বিক জলখাবার)।", imageUrl: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=700&q=80", available: true },
+      { id: "d4", name: "শুদ্ধ ঘিয়ের ভোগ খিচুড়ি ও লাবড়া", category: "দুপুর ও রাত", price: 80, desc: "দেশি ঘিয়ে তৈরি সুগন্ধি ভোগ খিচুড়ি, পাঁচমিশালি লাবড়া ও বেগুনি।", imageUrl: "https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=700&q=80", available: true },
+      { id: "d5", name: "পনির মশলা (নিরামিষ) ও ৪টি রুটি", category: "দুপুর ও রাত", price: 110, desc: "পিঁয়াজ-রসুন ছাড়া কাজু-পনির মশলা এবং ৪টি তাজা আটার রুটি।", imageUrl: "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=700&q=80", available: true },
+      { id: "d6", name: "রাধাষ্টমী স্পেশাল ক্ষীর পায়েস", category: "মিষ্টি ও প্রসাদ", price: 40, desc: "খাঁটি দুধ, গোবিন্দভোগ চাল ও কাজু-কিশমিশ দিয়ে তৈরি সুস্বাদু পায়েস প্রসাদ।", imageUrl: "https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=700&q=80", available: true }
+    ];
+
+    let monthlyPlans = [
+      { id: "p1", name: "সকালের প্রসাদ প্ল্যান", timing: "সকাল (Morning)", price: 1200, desc: "প্রতিদিন সকালে লুচি/রুটি/খিচুড়ি ও নিরামিষ তরকারি (৩০ দিন)।", imageUrl: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80", active: true },
+      { id: "p2", name: "দুপুরের প্রসাদ প্ল্যান", timing: "দুপুর (Lunch)", price: 2100, desc: "প্রতিদিন দুপুরে গরম ভাত, ডাল, ভাজা ও ২টি নিরামিষ সবজি (৩০ দিন)।", imageUrl: "https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=600&q=80", active: true },
+      { id: "p3", name: "রাতের প্রসাদ প্ল্যান", timing: "রাত (Dinner)", price: 1950, desc: "প্রতিদিন রাতে রুটি/ভাত, ডাল এবং পনির বা স্পেশাল সবজি (৩০ দিন)।", imageUrl: "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=600&q=80", active: true },
+      { id: "p4", name: "দুপুর + রাত কম্বো প্ল্যান", timing: "দুপুর ও রাত (Combo)", price: 3800, desc: "প্রতিদিন দুপুর ও রাত — দুই বেলার সম্পূর্ণ সাত্ত্বিক প্রসাদ (৬০ বেলা)।", imageUrl: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=600&q=80", active: true }
+    ];
+
+    let cart = [];
+    let activeCategory = "all";
+    let db = null;
+
+    function esc(str) {
+      return String(str ?? "").replace(/[&<>"']/g, m => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m]));
+    }
+
+    function applySettingsToUI() {
+      document.getElementById("navBrandName").textContent = storeSettings.brandName;
+      document.getElementById("footerBrandName").textContent = storeSettings.brandName;
+      document.getElementById("topLocation").textContent = storeSettings.location;
+      document.getElementById("aboutLocation").textContent = storeSettings.location;
+      document.getElementById("footerLocation").textContent = storeSettings.location;
+
+      const phone1 = storeSettings.phone1 || "8609386272";
+      const phone2 = storeSettings.phone2 || "8637812457";
+      document.getElementById("topPhoneLink").textContent = "📞 " + phone1;
+      document.getElementById("topPhoneLink").href = "tel:" + phone1;
+      document.getElementById("heroPhones").textContent = `${phone1} / ${phone2}`;
+      document.getElementById("footerPhone1").textContent = phone1;
+      document.getElementById("footerPhone1").href = "tel:" + phone1;
+      document.getElementById("footerPhone2").textContent = phone2;
+      document.getElementById("footerPhone2").href = "tel:" + phone2;
+      document.getElementById("footerDelivery").textContent = storeSettings.deliveryInfo || "১০ - ২০ টাকা";
+
+      const wa = storeSettings.whatsapp || ("91" + phone1);
+      document.getElementById("footerWhatsapp").href = `https://wa.me/${wa}`;
+
+      const statusBadge = document.getElementById("storeStatusBadge");
+      if (storeSettings.isOpen !== false) {
+        statusBadge.className = "hidden sm:inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800";
+        statusBadge.textContent = "● এখন খোলা আছে";
+      } else {
+        statusBadge.className = "hidden sm:inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold bg-red-100 text-red-800";
+        statusBadge.textContent = "● এখন বন্ধ আছে";
+      }
+
+      document.getElementById("demoNoticeBanner").style.display = storeSettings.showDemoNotice ? "block" : "none";
+
+      // Images from Admin links
+      const logoImg = document.getElementById("navLogo");
+      const logoFb = document.getElementById("navLogoFallback");
+      if (storeSettings.logoUrl) {
+        logoImg.src = storeSettings.logoUrl;
+        logoImg.classList.remove("hidden");
+        logoFb.classList.add("hidden");
+        logoImg.onerror = () => { logoImg.classList.add("hidden"); logoFb.classList.remove("hidden"); };
+      } else {
+        logoImg.classList.add("hidden");
+        logoFb.classList.remove("hidden");
+      }
+
+      const heroImg = document.getElementById("heroImage");
+      heroImg.src = storeSettings.heroImageUrl || FALLBACK_SVG;
+      heroImg.onerror = () => { heroImg.src = FALLBACK_SVG; };
+
+      const aboutImg = document.getElementById("aboutImage");
+      aboutImg.src = storeSettings.aboutImageUrl || FALLBACK_SVG;
+      aboutImg.onerror = () => { aboutImg.src = FALLBACK_SVG; };
+
+      const dineImg = document.getElementById("dineInImage");
+      dineImg.src = storeSettings.dineInImageUrl || FALLBACK_SVG;
+      dineImg.onerror = () => { dineImg.src = FALLBACK_SVG; };
+    }
+
+    function renderMenu() {
+      const search = document.getElementById("menuSearch").value.trim().toLowerCase();
+      const grid = document.getElementById("menuGrid");
+
+      const filtered = menuItems.filter(item => {
+        const matchCat = activeCategory === "all" || item.category === activeCategory;
+        const matchSearch = !search || item.name.toLowerCase().includes(search) || (item.desc || "").toLowerCase().includes(search);
+        return matchCat && matchSearch;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `<div class="col-span-full text-center py-12 text-amber-800 font-semibold">কোনো খাবার পাওয়া যায়নি।</div>`;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(item => {
+        const inCart = cart.find(c => c.id === item.id);
+        const isAvailable = item.available !== false;
+        return `
+          <div class="bg-white rounded-2xl border border-amber-200 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col">
+            <div class="relative aspect-[16/10] bg-amber-100 overflow-hidden">
+              <img src="${esc(item.imageUrl || FALLBACK_SVG)}" onerror="this.src='${FALLBACK_SVG}'" alt="${esc(item.name)}" class="w-full h-full object-cover" />
+              <span class="absolute top-3 left-3 bg-white/95 text-amber-900 text-xs font-bold px-2.5 py-1 rounded-full shadow">${esc(item.category)}</span>
+              <span class="absolute top-3 right-3 bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow">🌿 নিরামিষ</span>
+            </div>
+            <div class="p-5 flex-1 flex flex-col">
+              <div class="flex justify-between items-start gap-2">
+                <h4 class="text-lg font-bold text-amber-950">${esc(item.name)}</h4>
+                <span class="text-lg font-extrabold text-amber-700 whitespace-nowrap">₹${Number(item.price)}</span>
+              </div>
+              <p class="text-sm text-amber-800/80 mt-1.5 flex-1">${esc(item.desc || "পিঁয়াজ-রসুন ছাড়া শুদ্ধ কৃষ্ণ প্রসাদ।")}</p>
+              <div class="mt-4 pt-3 border-t border-amber-100">
+                ${!isAvailable ? `<button disabled class="w-full py-2.5 rounded-xl bg-gray-200 text-gray-500 font-bold text-sm cursor-not-allowed">বর্তমানে শেষ হয়ে গেছে</button>` :
+                  inCart ? `
+                    <div class="flex items-center justify-between bg-amber-50 border border-amber-300 rounded-xl p-1">
+                      <button onclick="updateQty('${esc(item.id)}', -1)" class="w-9 h-9 rounded-lg bg-white font-bold text-amber-900 shadow-sm hover:bg-amber-100">−</button>
+                      <span class="font-bold text-amber-950">${inCart.qty} টি কার্টে আছে</span>
+                      <button onclick="updateQty('${esc(item.id)}', 1)" class="w-9 h-9 rounded-lg saffron-gradient text-white font-bold shadow-sm">+</button>
+                    </div>
+                  ` : `
+                    <button onclick="addToCart('${esc(item.id)}')" class="w-full saffron-gradient text-white font-bold py-2.5 rounded-xl shadow hover:opacity-95 transition text-sm">
+                      + কার্টে যোগ করুন
+                    </button>
+                  `
+                }
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function renderPlans() {
+      const grid = document.getElementById("plansGrid");
+      const activePlans = monthlyPlans.filter(p => p.active !== false);
+      if (activePlans.length === 0) {
+        grid.innerHTML = `<div class="col-span-full text-center py-8 text-amber-800">বর্তমানে কোনো মান্থলি প্ল্যান চালু নেই।</div>`;
+        return;
+      }
+
+      grid.innerHTML = activePlans.map(plan => `
+        <div class="bg-white rounded-2xl border-2 border-amber-200 overflow-hidden shadow-sm hover:border-amber-500 transition flex flex-col">
+          <div class="aspect-[16/10] bg-amber-100 relative">
+            <img src="${esc(plan.imageUrl || FALLBACK_SVG)}" onerror="this.src='${FALLBACK_SVG}'" alt="${esc(plan.name)}" class="w-full h-full object-cover" />
+            <span class="absolute bottom-2 left-2 bg-amber-900/90 text-amber-100 text-xs font-bold px-2.5 py-1 rounded-lg">${esc(plan.timing)}</span>
+          </div>
+          <div class="p-5 flex-1 flex flex-col">
+            <h4 class="text-lg font-bold text-amber-950">${esc(plan.name)}</h4>
+            <div class="text-2xl font-extrabold text-amber-700 mt-1">₹${Number(plan.price)} <span class="text-xs font-medium text-amber-700">/ মাস</span></div>
+            <p class="text-sm text-amber-800/85 mt-2 flex-1">${esc(plan.desc)}</p>
+            <button onclick="openPlanModal('${esc(plan.id)}')" class="mt-4 w-full bg-amber-100 hover:bg-amber-600 hover:text-white text-amber-900 font-bold py-2.5 rounded-xl border border-amber-300 transition text-sm">
+              📅 প্ল্যান বুক করুন
+            </button>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function updateCartBadges() {
+      const count = cart.reduce((sum, i) => sum + i.qty, 0);
+      document.getElementById("cartCountBadge").textContent = count;
+      document.getElementById("mobileCartCount").textContent = count;
+      const bar = document.getElementById("floatingCartBar");
+      if (count > 0) bar.classList.remove("hidden");
+      else bar.classList.add("hidden");
+    }
+
+    function renderCartModal() {
+      const list = document.getElementById("cartItemsList");
+      const emptyMsg = document.getElementById("cartEmptyMsg");
+      const form = document.getElementById("checkoutForm");
+
+      if (cart.length === 0) {
+        list.innerHTML = "";
+        emptyMsg.classList.remove("hidden");
+        form.classList.add("hidden");
+        return;
+      }
+
+      emptyMsg.classList.add("hidden");
+      form.classList.remove("hidden");
+
+      list.innerHTML = cart.map(item => `
+        <div class="flex items-center justify-between gap-3 bg-amber-50/70 p-3 rounded-xl border border-amber-200">
+          <div class="min-w-0">
+            <div class="font-bold text-amber-950 text-sm truncate">${esc(item.name)}</div>
+            <div class="text-xs text-amber-700">₹${item.price} × ${item.qty} = <strong>₹${item.price * item.qty}</strong></div>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <button onclick="updateQty('${esc(item.id)}', -1)" class="w-7 h-7 rounded-lg bg-white border border-amber-300 font-bold">−</button>
+            <span class="w-6 text-center font-bold text-sm">${item.qty}</span>
+            <button onclick="updateQty('${esc(item.id)}', 1)" class="w-7 h-7 rounded-lg bg-amber-600 text-white font-bold">+</button>
+          </div>
+        </div>
+      `).join("");
+
+      updateCartTotals();
+    }
+
+    window.filterCategory = function(cat) {
+      activeCategory = cat;
+      document.querySelectorAll(".cat-btn").forEach(btn => {
+        btn.className = "cat-btn px-4 py-2 rounded-full text-sm font-bold whitespace-nowrap bg-white text-amber-900 border border-amber-300 hover:bg-amber-100";
+      });
+      event.target.className = "cat-btn active px-4 py-2 rounded-full text-sm font-bold whitespace-nowrap bg-amber-600 text-white shadow";
+      renderMenu();
+    };
+
+    window.addToCart = function(id) {
+      const item = menuItems.find(m => m.id === id);
+      if (!item) return;
+      const existing = cart.find(c => c.id === id);
+      if (existing) existing.qty += 1;
+      else cart.push({ id: item.id, name: item.name, price: Number(item.price), qty: 1 });
+      updateCartBadges();
+      renderMenu();
+    };
+
+    window.updateQty = function(id, delta) {
+      const idx = cart.findIndex(c => c.id === id);
+      if (idx === -1) return;
+      cart[idx].qty += delta;
+      if (cart[idx].qty <= 0) cart.splice(idx, 1);
+      updateCartBadges();
+      renderMenu();
+      renderCartModal();
+    };
+
+    window.openCartModal = function() {
+      renderCartModal();
+      const modal = document.getElementById("cartModal");
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    };
+
+    window.closeCartModal = function() {
+      const modal = document.getElementById("cartModal");
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    };
+
+    window.toggleOrderType = function() {
+      const type = document.querySelector('input[name="orderType"]:checked').value;
+      const isDelivery = type === "হোম ডেলিভারি";
+      document.getElementById("deliveryZoneBox").style.display = isDelivery ? "block" : "none";
+      document.getElementById("addressBox").style.display = isDelivery ? "block" : "none";
+      document.getElementById("custAddress").required = isDelivery;
+      updateCartTotals();
+    };
+
+    window.updateCartTotals = function() {
+      const subtotal = cart.reduce((sum, i) => sum + i.price * i.qty, 0);
+      const type = document.querySelector('input[name="orderType"]:checked').value;
+      const delivery = type === "হোম ডেলিভারি" ? Number(document.getElementById("deliveryChargeSelect").value) : 0;
+      document.getElementById("subtotalText").textContent = "₹" + subtotal;
+      document.getElementById("deliveryText").textContent = "₹" + delivery;
+      document.getElementById("grandTotalText").textContent = "₹" + (subtotal + delivery);
+    };
+
+    window.openPlanModal = function(planId) {
+      const plan = monthlyPlans.find(p => p.id === planId);
+      if (!plan) return;
+      document.getElementById("selectedPlanId").value = plan.id;
+      document.getElementById("selectedPlanName").value = plan.name;
+      document.getElementById("selectedPlanPrice").value = plan.price;
+      document.getElementById("selectedPlanTitle").textContent = `${plan.name} (₹${plan.price}/মাস)`;
+      document.getElementById("planStartDate").valueAsDate = new Date();
+      const modal = document.getElementById("planModal");
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    };
+
+    window.closePlanModal = function() {
+      const modal = document.getElementById("planModal");
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    };
+
+    window.closeSuccessModal = function() {
+      const modal = document.getElementById("successModal");
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    };
+
+    // Checkout Submit
+    document.getElementById("checkoutForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if (cart.length === 0) return;
+      const btn = document.getElementById("placeOrderBtn");
+      btn.disabled = true;
+      btn.textContent = "অর্ডার পাঠানো হচ্ছে...";
+
+      const orderType = document.querySelector('input[name="orderType"]:checked').value;
+      const subtotal = cart.reduce((sum, i) => sum + i.price * i.qty, 0);
+      const deliveryCharge = orderType === "হোম ডেলিভারি" ? Number(document.getElementById("deliveryChargeSelect").value) : 0;
+      const total = subtotal + deliveryCharge;
+
+      const orderData = {
+        customerName: document.getElementById("custName").value.trim(),
+        customerPhone: document.getElementById("custPhone").value.trim(),
+        customerAddress: orderType === "হোম ডেলিভারি" ? document.getElementById("custAddress").value.trim() : "রেস্টুরেন্টে বসে খাবেন",
+        note: document.getElementById("custNote").value.trim(),
+        orderType,
+        items: cart.map(c => ({ name: c.name, price: c.price, qty: c.qty })),
+        subtotal,
+        deliveryCharge,
+        total,
+        status: "নতুন অর্ডার",
+        createdAt: new Date().toISOString()
+      };
+
+      try {
+        if (db) {
+          await addDoc(collection(db, "orders"), { ...orderData, timestamp: serverTimestamp() });
+        }
+        const itemsText = orderData.items.map(i => `• ${i.name} × ${i.qty} = ₹${i.price * i.qty}`).join("\n");
+        const waMsg = encodeURIComponent(
+          `🙏 হরে কৃষ্ণ! নতুন অর্ডার (রাধে কৃষ্ণ প্রসাদম)\nনাম: ${orderData.customerName}\nমোবাইল: ${orderData.customerPhone}\nমাধ্যম: ${orderData.orderType}\nঠিকানা: ${orderData.customerAddress}\n\nখাবার:\n${itemsText}\n\nডেলিভারি চার্জ: ₹${deliveryCharge}\nসর্বমোট: ₹${total}\nনোট: ${orderData.note || "নেই"}`
+        );
+        const waNum = storeSettings.whatsapp || ("91" + (storeSettings.phone1 || "8609386272"));
+        document.getElementById("successWhatsappBtn").href = `https://wa.me/${waNum}?text=${waMsg}`;
+        document.getElementById("successMsgText").textContent =
+          db
+            ? `আপনার ₹${total} টাকার অর্ডারটি আমাদের কাছে পৌঁছে গেছে! দ্রুত নিশ্চিত করতে নিচের WhatsApp বাটনেও মেসেজ পাঠাতে পারেন।`
+            : `ডেমো মোড: Firebase যুক্ত না থাকায় নিচের WhatsApp বাটনে ক্লিক করে সরাসরি অর্ডারটি রেস্টুরেন্টে পাঠান।`;
+
+        cart = [];
+        updateCartBadges();
+        renderMenu();
+        closeCartModal();
+        document.getElementById("checkoutForm").reset();
+        toggleOrderType();
+        document.getElementById("successModal").classList.remove("hidden");
+        document.getElementById("successModal").classList.add("flex");
+      } catch (err) {
+        alert("অর্ডার পাঠাতে সমস্যা হয়েছে: " + err.message);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "✅ অর্ডার কনফার্ম করুন";
+      }
+    });
+
+    // Monthly Plan Submit
+    document.getElementById("planBookingForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById("submitPlanBtn");
+      btn.disabled = true;
+      btn.textContent = "পাঠানো হচ্ছে...";
+
+      const planReq = {
+        planId: document.getElementById("selectedPlanId").value,
+        planName: document.getElementById("selectedPlanName").value,
+        planPrice: Number(document.getElementById("selectedPlanPrice").value),
+        customerName: document.getElementById("planCustName").value.trim(),
+        customerPhone: document.getElementById("planCustPhone").value.trim(),
+        serviceMode: document.getElementById("planServiceMode").value,
+        address: document.getElementById("planCustAddress").value.trim(),
+        startDate: document.getElementById("planStartDate").value,
+        status: "পেন্ডিং",
+        createdAt: new Date().toISOString()
+      };
+
+      try {
+        if (db) {
+          await addDoc(collection(db, "subscriptions"), { ...planReq, timestamp: serverTimestamp() });
+        }
+        const waMsg = encodeURIComponent(
+          `🙏 হরে কৃষ্ণ! মান্থলি প্ল্যান বুকিং\nপ্ল্যান: ${planReq.planName} (₹${planReq.planPrice}/মাস)\nনাম: ${planReq.customerName}\nমোবাইল: ${planReq.customerPhone}\nমাধ্যম: ${planReq.serviceMode}\nঠিকানা: ${planReq.address}\nশুরুর তারিখ: ${planReq.startDate}`
+        );
+        const waNum = storeSettings.whatsapp || ("91" + (storeSettings.phone1 || "8609386272"));
+        document.getElementById("successWhatsappBtn").href = `https://wa.me/${waNum}?text=${waMsg}`;
+        document.getElementById("successMsgText").textContent =
+          `আপনার "${planReq.planName}" এর আবেদন জমা হয়েছে! আমাদের প্রতিনিধি শীঘ্রই আপনার সাথে যোগাযোগ করবেন।`;
+
+        closePlanModal();
+        document.getElementById("planBookingForm").reset();
+        document.getElementById("successModal").classList.remove("hidden");
+        document.getElementById("successModal").classList.add("flex");
+      } catch (err) {
+        alert("বুকিং পাঠাতে সমস্যা হয়েছে: " + err.message);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "🙏 মান্থলি প্ল্যান রিকোয়েস্ট পাঠান";
+      }
+    });
+
+    document.getElementById("menuSearch").addEventListener("input", renderMenu);
+    document.getElementById("yearNow").textContent = new Date().getFullYear();
+
+    // Initialize UI & Firebase Live Sync
+    applySettingsToUI();
+    renderMenu();
+    renderPlans();
+
+    if (isFirebaseConfigured) {
+      const app = initializeApp(firebaseConfig);
+      db = getFirestore(app);
+
+      // Live Store Settings & Images
+      onSnapshot(doc(db, "settings", "main"), (snap) => {
+        if (snap.exists()) {
+          storeSettings = { ...storeSettings, ...snap.data() };
+          applySettingsToUI();
+        }
+      });
+
+      // Live Menu Items
+      onSnapshot(collection(db, "menu"), (snap) => {
+        if (!snap.empty) {
+          menuItems = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+          renderMenu();
+        }
+      });
+
+      // Live Monthly Plans
+      onSnapshot(collection(db, "plans"), (snap) => {
+        if (!snap.empty) {
+          monthlyPlans = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+          renderPlans();
+        }
+      });
+    }
+  </script>
+</body>
+</html>
