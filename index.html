@@ -8,49 +8,53 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    /* লাইট মোড ভ্যারিয়েবল */
+    /* লাইট মোড (ডে) */
     :root,
     [data-theme="light"] {
-      --bg-page: #f1f5f9;
-      --bg-pattern: radial-gradient(circle at 20% 0%, rgba(234, 88, 12, 0.09), transparent 45%),
-                    radial-gradient(circle at 80% 10%, rgba(14, 165, 233, 0.08), transparent 40%);
+      --bg-page: #f6f3ec;
+      --aurora-1: rgba(234, 88, 12, 0.14);
+      --aurora-2: rgba(29, 78, 216, 0.10);
       --surface: #ffffff;
-      --surface-soft: #f8fafc;
-      --glass: rgba(255, 255, 255, 0.85);
+      --surface-2: #f8fafc;
+      --glass: rgba(255, 255, 255, 0.82);
       --text-main: #0f172a;
       --text-muted: #64748b;
-      --border: #e2e8f0;
-      --accent: #ea580c;
-      --accent-soft: rgba(234, 88, 12, 0.1);
-      --btn-dark-bg: linear-gradient(135deg, #0f172a, #1e293b);
-      --btn-dark-text: #ffffff;
-      --card-shadow: 0 18px 40px -12px rgba(15, 23, 42, 0.12), 0 4px 12px rgba(15, 23, 42, 0.05);
-      --dock-bg: rgba(255, 255, 255, 0.9);
-      --dock-border: rgba(226, 232, 240, 0.9);
-      --shimmer-1: #e2e8f0;
-      --shimmer-2: #f8fafc;
+      --border: rgba(15, 23, 42, 0.09);
+      --accent: #d97706;
+      --accent-2: #ea580c;
+      --accent-soft: rgba(217, 119, 6, 0.12);
+      --frame-glow: linear-gradient(135deg, rgba(217, 119, 6, 0.45), rgba(29, 78, 216, 0.25), rgba(234, 88, 12, 0.45));
+      --btn-primary: linear-gradient(135deg, #0f172a, #1e293b);
+      --btn-primary-text: #ffffff;
+      --card-shadow: 0 24px 48px -14px rgba(15, 23, 42, 0.16);
+      --dock-bg: rgba(255, 255, 255, 0.88);
+      --dock-border: rgba(255, 255, 255, 0.95);
+      --shimmer-1: #eae5db;
+      --shimmer-2: #faf7f0;
     }
 
-    /* ডার্ক / নাইট মোড ভ্যারিয়েবল */
+    /* ডার্ক মোড (নাইট) */
     [data-theme="dark"] {
-      --bg-page: #070b14;
-      --bg-pattern: radial-gradient(circle at 20% 0%, rgba(245, 158, 11, 0.12), transparent 45%),
-                    radial-gradient(circle at 85% 15%, rgba(56, 189, 248, 0.08), transparent 40%);
+      --bg-page: #060913;
+      --aurora-1: rgba(245, 158, 11, 0.16);
+      --aurora-2: rgba(56, 189, 248, 0.12);
       --surface: #111827;
-      --surface-soft: #1a2333;
-      --glass: rgba(17, 24, 39, 0.84);
+      --surface-2: #1a2234;
+      --glass: rgba(15, 23, 42, 0.80);
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
-      --border: #1e293b;
-      --accent: #f59e0b;
-      --accent-soft: rgba(245, 158, 11, 0.14);
-      --btn-dark-bg: linear-gradient(135deg, #f59e0b, #d97706);
-      --btn-dark-text: #0f172a;
-      --card-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.05);
-      --dock-bg: rgba(17, 24, 39, 0.88);
-      --dock-border: rgba(51, 65, 85, 0.7);
-      --shimmer-1: #1e293b;
-      --shimmer-2: #283548;
+      --border: rgba(255, 255, 255, 0.09);
+      --accent: #fbbf24;
+      --accent-2: #f59e0b;
+      --accent-soft: rgba(251, 191, 36, 0.14);
+      --frame-glow: linear-gradient(135deg, rgba(251, 191, 36, 0.48), rgba(56, 189, 248, 0.28), rgba(245, 158, 11, 0.48));
+      --btn-primary: linear-gradient(135deg, #fbbf24, #d97706);
+      --btn-primary-text: #090d16;
+      --card-shadow: 0 26px 60px -12px rgba(0, 0, 0, 0.78);
+      --dock-bg: rgba(15, 23, 42, 0.86);
+      --dock-border: rgba(255, 255, 255, 0.1);
+      --shimmer-1: #1a2234;
+      --shimmer-2: #243047;
     }
 
     * {
@@ -60,39 +64,90 @@
       -webkit-tap-highlight-color: transparent;
     }
 
+    html { scroll-behavior: smooth; }
+
     body {
       font-family: 'Hind Siliguri', 'Noto Sans Bengali', system-ui, -apple-system, sans-serif;
       background-color: var(--bg-page);
-      background-image: var(--bg-pattern);
-      background-attachment: fixed;
       color: var(--text-main);
       min-height: 100vh;
-      padding: 12px 12px 104px;
-      transition: background-color 0.3s ease, color 0.3s ease;
+      padding: 14px 12px 110px;
+      overflow-x: hidden;
+      transition: background-color 0.35s ease, color 0.35s ease;
     }
 
-    /* ফ্লোটিং ক্যাপসুল হেডার */
+    /* অ্যানিমেটেড অরোরা ব্যাকগ্রাউন্ড */
+    .ambient-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .ambient-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(75px);
+      animation: floatBlob 14s ease-in-out infinite alternate;
+    }
+
+    .blob-1 {
+      width: 340px;
+      height: 340px;
+      top: -90px;
+      left: -60px;
+      background: var(--aurora-1);
+    }
+
+    .blob-2 {
+      width: 320px;
+      height: 320px;
+      top: 120px;
+      right: -80px;
+      background: var(--aurora-2);
+      animation-delay: -5s;
+    }
+
+    @keyframes floatBlob {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(25px, 35px) scale(1.12); }
+    }
+
+    /* উপরে স্ক্রল প্রগ্রেস লাইন */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2), #3b82f6);
+      z-index: 90;
+      transition: width 0.08s linear;
+    }
+
+    /* ফ্লোটিং গ্লাস হেডার */
     .header-wrap {
       position: sticky;
       top: 10px;
       z-index: 50;
       max-width: 780px;
-      margin: 0 auto 16px;
+      margin: 0 auto 18px;
     }
 
     .top-bar {
       background: var(--glass);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
       border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 10px 12px 10px 14px;
+      border-radius: 22px;
+      padding: 9px 10px 9px 12px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 10px;
-      box-shadow: 0 10px 28px -10px rgba(0, 0, 0, 0.12);
-      transition: background 0.3s ease, border-color 0.3s ease;
+      gap: 8px;
+      box-shadow: 0 12px 32px -10px rgba(0, 0, 0, 0.15);
+      transition: background 0.35s ease, border-color 0.35s ease;
     }
 
     .brand-left {
@@ -103,73 +158,112 @@
     }
 
     .brand-logo {
-      width: 38px;
-      height: 38px;
-      border-radius: 13px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      border: 1px solid rgba(245, 158, 11, 0.25);
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #ffffff;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      box-shadow: 0 6px 16px -4px rgba(217, 119, 6, 0.45);
     }
 
-    .brand-info {
-      min-width: 0;
-    }
+    .brand-info { min-width: 0; }
 
     .brand-name {
       font-size: 1.08rem;
       font-weight: 700;
       color: var(--text-main);
-      line-height: 1.2;
+      line-height: 1.22;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
 
-    .brand-status {
+    .brand-sub {
       display: inline-flex;
       align-items: center;
       gap: 5px;
-      font-size: 0.75rem;
+      font-size: 0.74rem;
       color: var(--text-muted);
       font-weight: 500;
     }
 
-    .live-dot {
+    .pulse-dot {
       width: 7px;
       height: 7px;
       border-radius: 50%;
       background: #22c55e;
-      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.22);
+      animation: pulseRing 2s infinite;
     }
 
-    /* ডার্ক / নাইট মোড টগল বাটন */
-    .theme-toggle {
+    @keyframes pulseRing {
+      0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55); }
+      70% { box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+    }
+
+    .header-controls {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      flex-shrink: 0;
+    }
+
+    .icon-pill-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 13px;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.15s ease, background 0.3s ease;
+    }
+
+    .icon-pill-btn:active { transform: scale(0.92); }
+
+    /* স্লাইডিং ডে/নাইট পিল সুইচ */
+    .theme-switch {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 7px 12px;
-      border-radius: 14px;
+      height: 38px;
+      padding: 0 11px 0 8px;
+      border-radius: 13px;
       border: 1px solid var(--border);
-      background: var(--surface-soft);
+      background: var(--surface-2);
       color: var(--text-main);
       font-family: inherit;
-      font-size: 0.82rem;
-      font-weight: 600;
+      font-size: 0.8rem;
+      font-weight: 700;
       cursor: pointer;
-      flex-shrink: 0;
-      transition: transform 0.15s ease, background 0.3s ease, border-color 0.3s ease;
+      transition: transform 0.15s ease, background 0.3s ease;
     }
 
-    .theme-toggle:active {
-      transform: scale(0.95);
+    .theme-switch:active { transform: scale(0.94); }
+
+    .switch-orb {
+      width: 24px;
+      height: 24px;
+      border-radius: 9px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
     }
 
-    /* মেনু মেইন সেকশন */
+    /* মেনু শোকেস কনটেইনার */
     .menu-wrapper {
+      position: relative;
+      z-index: 1;
       max-width: 780px;
       margin: 0 auto;
     }
@@ -177,22 +271,33 @@
     .menu-pages {
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 20px;
     }
 
-    /* ইউনিফাইড মেনু শোকেস কার্ড */
+    /* প্রিমিয়াম গ্লো ফ্রেম */
+    .menu-frame {
+      padding: 1.5px;
+      border-radius: 26px;
+      background: var(--frame-glow);
+      box-shadow: var(--card-shadow);
+      animation: cardIn 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     .menu-card {
       background: var(--surface);
-      border-radius: 24px;
+      border-radius: 24.5px;
       overflow: hidden;
-      border: 1px solid var(--border);
-      box-shadow: var(--card-shadow);
-      transition: background 0.3s ease, border-color 0.3s ease;
+      transition: background 0.35s ease;
     }
 
     .menu-card-media {
       position: relative;
-      background: var(--surface-soft);
+      background: var(--surface-2);
     }
 
     .menu-card-media img {
@@ -206,27 +311,28 @@
     .menu-card-media iframe {
       display: block;
       width: 100%;
-      height: 72vh;
+      height: 73vh;
       min-height: 450px;
       border: none;
       background: #fff;
     }
 
-    .page-pill {
+    .page-badge {
       position: absolute;
       top: 12px;
       left: 12px;
-      background: rgba(15, 23, 42, 0.72);
+      background: rgba(9, 13, 22, 0.76);
       backdrop-filter: blur(8px);
-      color: #ffffff;
+      color: #fde68a;
       font-size: 0.74rem;
-      font-weight: 600;
-      padding: 4px 10px;
+      font-weight: 700;
+      padding: 4px 11px;
       border-radius: 99px;
+      border: 1px solid rgba(251, 191, 36, 0.35);
       pointer-events: none;
     }
 
-    /* কার্ডের সাথে যুক্ত অ্যাকশন বার (জুম + ডাউনলোড) */
+    /* কার্ড ফুটার অ্যাকশন বার */
     .card-action-bar {
       display: flex;
       align-items: center;
@@ -241,10 +347,10 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 10px 14px;
-      border-radius: 13px;
+      padding: 11px 14px;
+      border-radius: 14px;
       border: 1px solid var(--border);
-      background: var(--surface-soft);
+      background: var(--surface-2);
       color: var(--text-main);
       font-family: inherit;
       font-size: 0.88rem;
@@ -253,41 +359,43 @@
       transition: transform 0.15s ease;
     }
 
-    .btn-zoom-inline:active { transform: scale(0.96); }
+    .btn-zoom-inline:active { transform: scale(0.95); }
 
     .btn-download {
       flex: 1;
-      max-width: 240px;
+      max-width: 245px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
       padding: 11px 16px;
-      border-radius: 13px;
+      border-radius: 14px;
       border: none;
-      background: var(--btn-dark-bg);
-      color: var(--btn-dark-text);
+      background: var(--btn-primary);
+      color: var(--btn-primary-text);
       font-family: inherit;
-      font-size: 0.92rem;
+      font-size: 0.93rem;
       font-weight: 700;
       cursor: pointer;
-      box-shadow: 0 8px 18px -6px rgba(0, 0, 0, 0.25);
-      transition: transform 0.15s ease, opacity 0.2s ease;
+      box-shadow: 0 8px 20px -6px rgba(0, 0, 0, 0.3);
+      transition: transform 0.15s ease;
     }
 
-    .btn-download:active { transform: scale(0.97); }
+    .btn-download:active { transform: scale(0.96); }
 
     /* শিমার লোডার */
     .skeleton-card {
-      height: 440px;
+      height: 450px;
       border-radius: 24px;
       border: 1px solid var(--border);
       background: linear-gradient(90deg, var(--shimmer-1) 25%, var(--shimmer-2) 50%, var(--shimmer-1) 75%);
       background-size: 200% 100%;
-      animation: shimmer 1.4s infinite linear;
+      animation: shimmer 1.3s infinite linear;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
+      gap: 10px;
       color: var(--text-muted);
       font-weight: 600;
     }
@@ -298,31 +406,52 @@
     }
 
     .menu-error {
-      padding: 36px 20px;
+      padding: 40px 20px;
       text-align: center;
       color: var(--text-muted);
-      font-size: 0.95rem;
     }
 
     .menu-error a {
       display: inline-block;
       margin-top: 10px;
-      padding: 8px 16px;
+      padding: 9px 18px;
       background: var(--accent);
       color: #fff;
-      border-radius: 10px;
+      border-radius: 11px;
       font-weight: 600;
       text-decoration: none;
     }
 
-    /* নিচের ফ্লোটিং ডক (কল ও WhatsApp) */
+    /* উপরে ওঠার ফ্লোটিং বাটন */
+    .scroll-top-btn {
+      position: fixed;
+      right: 14px;
+      bottom: 88px;
+      z-index: 55;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      color: var(--text-main);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+    }
+
+    .scroll-top-btn.visible { display: flex; }
+
+    /* নিচের ফ্লোটিং গ্লাস ডক (কল ও WhatsApp) */
     .bottom-dock-wrap {
       position: fixed;
       bottom: 0;
       left: 0;
       right: 0;
       z-index: 60;
-      padding: 10px 14px calc(14px + env(safe-area-inset-bottom, 0px));
+      padding: 10px 12px calc(12px + env(safe-area-inset-bottom, 0px));
       pointer-events: none;
       display: flex;
       justify-content: center;
@@ -331,29 +460,31 @@
     .bottom-actions {
       pointer-events: auto;
       width: 100%;
-      max-width: 520px;
+      max-width: 540px;
       background: var(--dock-bg);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border: 1px solid var(--dock-border);
-      border-radius: 24px;
+      border-radius: 26px;
       padding: 7px;
       display: flex;
       gap: 8px;
-      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.22);
-      transition: background 0.3s ease, border-color 0.3s ease;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+      transition: background 0.35s ease, border-color 0.35s ease;
     }
 
     .action-btn {
+      position: relative;
+      overflow: hidden;
       flex: 1;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 12px 14px;
-      border-radius: 17px;
+      padding: 13px 14px;
+      border-radius: 19px;
       color: #ffffff;
-      font-size: 0.96rem;
+      font-size: 0.97rem;
       font-weight: 700;
       text-decoration: none;
       transition: transform 0.15s ease;
@@ -363,38 +494,69 @@
 
     .btn-call {
       background: linear-gradient(135deg, #0284c7, #1d4ed8);
-      box-shadow: 0 6px 16px -4px rgba(2, 132, 199, 0.45);
+      box-shadow: 0 8px 20px -5px rgba(2, 132, 199, 0.5);
     }
 
     .btn-whatsapp {
       background: linear-gradient(135deg, #22c55e, #15803d);
-      box-shadow: 0 6px 16px -4px rgba(22, 163, 74, 0.45);
+      box-shadow: 0 8px 20px -5px rgba(22, 163, 74, 0.5);
     }
 
-    /* ফুলস্ক্রিন জুম মডাল */
+    /* WhatsApp বাটনে শাইন অ্যানিমেশন */
+    .btn-whatsapp::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+      transform: skewX(-20deg);
+      animation: shineSweep 4s infinite;
+    }
+
+    @keyframes shineSweep {
+      0%, 60% { left: -120%; }
+      100% { left: 160%; }
+    }
+
+    /* অ্যাডভান্সড ইন্টারঅ্যাক্টিভ জুম মডাল */
     .zoom-overlay {
       position: fixed;
       inset: 0;
       z-index: 150;
-      background: rgba(5, 8, 16, 0.95);
-      backdrop-filter: blur(6px);
+      background: rgba(5, 8, 16, 0.96);
+      backdrop-filter: blur(8px);
       display: none;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       padding: 12px;
     }
 
     .zoom-overlay.active { display: flex; }
 
+    .zoom-topbar {
+      width: 100%;
+      max-width: 780px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #fff;
+      padding: 4px 2px 8px;
+    }
+
+    .zoom-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
     .zoom-close {
-      position: fixed;
-      top: 14px;
-      right: 14px;
-      width: 42px;
-      height: 42px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
-      border: 1px solid rgba(255, 255, 255, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.24);
       background: rgba(255, 255, 255, 0.14);
       color: #ffffff;
       font-size: 22px;
@@ -402,38 +564,59 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      z-index: 160;
     }
 
     .zoom-scroll {
+      flex: 1;
       width: 100%;
-      max-height: 88vh;
       overflow: auto;
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      border-radius: 12px;
+      border-radius: 14px;
     }
 
     .zoom-scroll img {
-      max-width: 100%;
+      width: 100%;
+      max-width: 760px;
       height: auto;
       border-radius: 10px;
+      transition: width 0.2s ease;
     }
 
-    .zoom-tip {
+    .zoom-controls {
       margin-top: 10px;
-      color: rgba(255, 255, 255, 0.72);
-      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      padding: 6px;
+      border-radius: 99px;
+      backdrop-filter: blur(10px);
     }
 
-    /* অ্যাডমিন মডাল (ডার্ক/লাইট অ্যাডাপ্টিভ) */
+    .zoom-ctrl-btn {
+      padding: 7px 14px;
+      border-radius: 99px;
+      border: none;
+      background: rgba(255, 255, 255, 0.16);
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .zoom-ctrl-btn:active { background: rgba(255, 255, 255, 0.3); }
+
+    /* গোপন অ্যাডমিন মডাল */
     .modal-overlay {
       position: fixed;
       inset: 0;
       z-index: 100;
-      background: rgba(5, 8, 16, 0.75);
-      backdrop-filter: blur(6px);
+      background: rgba(5, 8, 16, 0.76);
+      backdrop-filter: blur(7px);
       display: none;
       align-items: center;
       justify-content: center;
@@ -449,9 +632,9 @@
       border: 1px solid var(--border);
       width: 100%;
       max-width: 500px;
-      border-radius: 22px;
+      border-radius: 24px;
       padding: 22px;
-      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 24px 55px rgba(0, 0, 0, 0.38);
       max-height: 92vh;
       overflow-y: auto;
     }
@@ -468,7 +651,7 @@
     .admin-header h2 { font-size: 1.15rem; font-weight: 700; }
 
     .close-btn {
-      background: var(--surface-soft);
+      background: var(--surface-2);
       border: 1px solid var(--border);
       width: 34px;
       height: 34px;
@@ -485,7 +668,6 @@
       font-size: 0.88rem;
       font-weight: 600;
       margin-bottom: 5px;
-      color: var(--text-main);
     }
 
     .form-group small {
@@ -499,7 +681,7 @@
     .form-control {
       width: 100%;
       padding: 10px 12px;
-      background: var(--surface-soft);
+      background: var(--surface-2);
       color: var(--text-main);
       border: 1px solid var(--border);
       border-radius: 11px;
@@ -514,7 +696,7 @@
     .btn {
       width: 100%;
       padding: 12px 14px;
-      border-radius: 12px;
+      border-radius: 13px;
       border: none;
       font-size: 0.96rem;
       font-weight: 700;
@@ -523,9 +705,9 @@
     }
 
     .btn:disabled { opacity: 0.6; cursor: not-allowed; }
-    .btn-save { background: var(--btn-dark-bg); color: var(--btn-dark-text); }
+    .btn-save { background: var(--btn-primary); color: var(--btn-primary-text); }
     .btn-secondary {
-      background: var(--surface-soft);
+      background: var(--surface-2);
       color: var(--text-main);
       border: 1px solid var(--border);
       margin-top: 8px;
@@ -540,7 +722,7 @@
 
     .toast {
       position: fixed;
-      top: 76px;
+      top: 78px;
       left: 50%;
       transform: translateX(-50%);
       background: var(--text-main);
@@ -550,32 +732,47 @@
       font-size: 0.86rem;
       font-weight: 600;
       z-index: 200;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
       display: none;
     }
   </style>
 </head>
 <body>
 
-  <!-- ফ্লোটিং ক্যাপসুল হেডার + ডার্ক/নাইট মোড বাটন -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="ambient-blob blob-1"></div>
+    <div class="ambient-blob blob-2"></div>
+  </div>
+
+  <!-- ফ্লোটিং গ্লাস হেডার -->
   <div class="header-wrap">
     <header class="top-bar">
       <div class="brand-left">
         <span class="brand-logo" aria-hidden="true">
-          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/>
           </svg>
         </span>
         <div class="brand-info">
           <div class="brand-name" id="displayRestaurantName">ডিজিটাল মেনু</div>
-          <div class="brand-status"><span class="live-dot"></span> ডিজিটাল মেনু কার্ড</div>
+          <div class="brand-sub"><span class="pulse-dot"></span> সরাসরি মেনু দেখুন</div>
         </div>
       </div>
 
-      <button type="button" class="theme-toggle" id="themeToggleBtn" aria-label="ডার্ক বা লাইট মোড পরিবর্তন">
-        <span id="themeIcon">🌙</span>
-        <span id="themeLabel">নাইট</span>
-      </button>
+      <div class="header-controls">
+        <button type="button" class="icon-pill-btn" id="shareMenuBtn" title="মেনু শেয়ার করুন" aria-label="মেনু শেয়ার করুন">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+          </svg>
+        </button>
+
+        <button type="button" class="theme-switch" id="themeToggleBtn" aria-label="ডার্ক বা লাইট মোড পরিবর্তন">
+          <span class="switch-orb" id="themeIcon">🌙</span>
+          <span id="themeLabel">নাইট</span>
+        </button>
+      </div>
     </header>
   </div>
 
@@ -585,6 +782,13 @@
       <div class="skeleton-card">মেনু লোড হচ্ছে...</div>
     </div>
   </main>
+
+  <!-- উপরে যাওয়ার বাটন -->
+  <button type="button" class="scroll-top-btn" id="scrollTopBtn" aria-label="উপরে যান">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
 
   <!-- নিচের ফ্লোটিং গ্লাস ডক -->
   <div class="bottom-dock-wrap">
@@ -604,13 +808,20 @@
     </footer>
   </div>
 
-  <!-- ফুলস্ক্রিন জুম মডাল -->
+  <!-- ইন্টারঅ্যাক্টিভ জুম মডাল -->
   <div class="zoom-overlay" id="zoomModal">
-    <button class="zoom-close" id="closeZoomBtn" aria-label="বন্ধ করুন">&times;</button>
+    <div class="zoom-topbar">
+      <span class="zoom-label" id="zoomPercentLabel">জুম: ১০০%</span>
+      <button class="zoom-close" id="closeZoomBtn" aria-label="বন্ধ করুন">&times;</button>
+    </div>
     <div class="zoom-scroll">
       <img id="zoomImg" src="" alt="মেনু বড় ভিউ" />
     </div>
-    <div class="zoom-tip">ভালোভাবে দেখতে দুই আঙুল দিয়ে জুম করুন</div>
+    <div class="zoom-controls">
+      <button type="button" class="zoom-ctrl-btn" id="zoomOutBtn">➖ ছোট</button>
+      <button type="button" class="zoom-ctrl-btn" id="zoomResetBtn">১০০%</button>
+      <button type="button" class="zoom-ctrl-btn" id="zoomInBtn">➕ বড়</button>
+    </div>
   </div>
 
   <!-- গোপন অ্যাডমিন মডাল -->
@@ -667,14 +878,16 @@
 
   <script>
     (function () {
-      // আপনার Google Apps Script URL যুক্ত করা হয়েছে
+      // আপনার Google Apps Script URL সরাসরি যুক্ত করা হয়েছে
       const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzCInMJoqXu6I5uIIki4mKrD4MInvBmM3km85MtXOUZw56gMCVjy3o8etswFzHae6G15Q/exec";
 
-      const CACHE_KEY = "restaurant_menu_cache_v4";
-      const THEME_KEY = "restaurant_theme_mode_v1";
+      const CACHE_KEY = "restaurant_menu_cache_v5";
+      const THEME_KEY = "restaurant_theme_mode_v2";
 
       let sessionKey = "";
       let sessionPassword = "";
+      let zoomScale = 1;
+
       let currentConfig = {
         restaurantName: "আমার রেস্টুরেন্ট",
         menuLinks: "",
@@ -687,6 +900,9 @@
       const menuContainer = document.getElementById("menuContainer");
       const callBtn = document.getElementById("callBtn");
       const whatsappBtn = document.getElementById("whatsappBtn");
+      const shareMenuBtn = document.getElementById("shareMenuBtn");
+      const scrollProgress = document.getElementById("scrollProgress");
+      const scrollTopBtn = document.getElementById("scrollTopBtn");
 
       const themeToggleBtn = document.getElementById("themeToggleBtn");
       const themeIcon = document.getElementById("themeIcon");
@@ -694,7 +910,11 @@
 
       const zoomModal = document.getElementById("zoomModal");
       const zoomImg = document.getElementById("zoomImg");
+      const zoomPercentLabel = document.getElementById("zoomPercentLabel");
       const closeZoomBtn = document.getElementById("closeZoomBtn");
+      const zoomInBtn = document.getElementById("zoomInBtn");
+      const zoomOutBtn = document.getElementById("zoomOutBtn");
+      const zoomResetBtn = document.getElementById("zoomResetBtn");
 
       const adminModal = document.getElementById("adminModal");
       const closeAdminBtn = document.getElementById("closeAdminBtn");
@@ -713,7 +933,7 @@
       const inputPhone = document.getElementById("inputPhone");
       const inputWhatsapp = document.getElementById("inputWhatsapp");
 
-      // ডার্ক / লাইট মোড সেটআপ
+      // ডার্ক / লাইট মোড
       function applyTheme(theme) {
         document.documentElement.setAttribute("data-theme", theme);
         if (theme === "dark") {
@@ -743,12 +963,47 @@
 
       initTheme();
 
+      // স্ক্রল প্রগ্রেস ও উপরে যাওয়ার বাটন
+      window.addEventListener("scroll", () => {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = docHeight > 0 ? Math.min(100, (scrollTop / docHeight) * 100) : 0;
+        scrollProgress.style.width = pct + "%";
+        scrollTopBtn.classList.toggle("visible", scrollTop > 280);
+      });
+
+      scrollTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
       function showToast(msg) {
         toastMsg.textContent = msg;
         toastMsg.style.display = "block";
         clearTimeout(window._toastTimer);
         window._toastTimer = setTimeout(() => { toastMsg.style.display = "none"; }, 2800);
       }
+
+      // নিরাপদ শেয়ার বাটন (অ্যাডমিন ?access= প্যারামিটার বাদ দিয়ে শুধু পাবলিক লিঙ্ক শেয়ার করবে)
+      shareMenuBtn.addEventListener("click", async () => {
+        const cleanUrl = window.location.origin + window.location.pathname;
+        const title = currentConfig.restaurantName || "রেস্টুরেন্ট মেনু";
+        if (navigator.share) {
+          try {
+            await navigator.share({
+              title: title,
+              text: `${title} - আমাদের ডিজিটাল মেনু দেখুন:`,
+              url: cleanUrl
+            });
+            return;
+          } catch (e) {}
+        }
+        try {
+          await navigator.clipboard.writeText(cleanUrl);
+          showToast("মেনু লিঙ্ক কপি হয়েছে!");
+        } catch (e) {
+          prompt("লিঙ্কটি কপি করুন:", cleanUrl);
+        }
+      });
 
       function getDemoSvgDataUri(name) {
         const safeName = (name || "আমার রেস্টুরেন্ট").replace(/[<>&"']/g, "");
@@ -787,10 +1042,39 @@
         return digits;
       }
 
+      // ইন্টারঅ্যাক্টিভ জুম কন্ট্রোল
+      function updateZoomUI() {
+        zoomPercentLabel.textContent = `জুম: ${Math.round(zoomScale * 100)}%`;
+        if (zoomScale <= 1) {
+          zoomImg.style.width = "100%";
+          zoomImg.style.maxWidth = "760px";
+        } else {
+          zoomImg.style.maxWidth = "none";
+          zoomImg.style.width = Math.round(zoomScale * 100) + "%";
+        }
+      }
+
       function openZoomView(src) {
+        zoomScale = 1;
         zoomImg.src = src;
+        updateZoomUI();
         zoomModal.classList.add("active");
       }
+
+      zoomInBtn.addEventListener("click", () => {
+        zoomScale = Math.min(3, +(zoomScale + 0.4).toFixed(2));
+        updateZoomUI();
+      });
+
+      zoomOutBtn.addEventListener("click", () => {
+        zoomScale = Math.max(1, +(zoomScale - 0.4).toFixed(2));
+        updateZoomUI();
+      });
+
+      zoomResetBtn.addEventListener("click", () => {
+        zoomScale = 1;
+        updateZoomUI();
+      });
 
       closeZoomBtn.addEventListener("click", () => zoomModal.classList.remove("active"));
       zoomModal.addEventListener("click", (e) => {
@@ -842,7 +1126,7 @@
         const zoomBtn = document.createElement("button");
         zoomBtn.type = "button";
         zoomBtn.className = "btn-zoom-inline";
-        zoomBtn.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg> জুম করুন`;
+        zoomBtn.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg> জুম ভিউ`;
         if (zoomSrc) {
           zoomBtn.addEventListener("click", () => openZoomView(zoomSrc));
         } else {
@@ -868,7 +1152,8 @@
         callBtn.href = telClean ? `tel:${telClean}` : "#";
 
         const waClean = formatWhatsappNumber(currentConfig.whatsapp);
-        whatsappBtn.href = waClean ? `https://wa.me/${waClean}` : "#";
+        const waText = encodeURIComponent("নমস্কার! আমি আপনাদের মেনু দেখে খাবার অর্ডার করতে চাই।");
+        whatsappBtn.href = waClean ? `https://wa.me/${waClean}?text=${waText}` : "#";
 
         menuContainer.innerHTML = "";
         const rawLinks = (currentConfig.menuLinks || "")
@@ -877,6 +1162,8 @@
           .filter(Boolean);
 
         if (rawLinks.length === 0) {
+          const frame = document.createElement("div");
+          frame.className = "menu-frame";
           const card = document.createElement("div");
           card.className = "menu-card";
           const media = document.createElement("div");
@@ -889,11 +1176,15 @@
           media.appendChild(img);
           card.appendChild(media);
           card.appendChild(createActionBar(demoSrc, ""));
-          menuContainer.appendChild(card);
+          frame.appendChild(card);
+          menuContainer.appendChild(frame);
           return;
         }
 
         rawLinks.forEach((link, idx) => {
+          const frame = document.createElement("div");
+          frame.className = "menu-frame";
+
           const card = document.createElement("div");
           card.className = "menu-card";
 
@@ -901,10 +1192,10 @@
           media.className = "menu-card-media";
 
           if (rawLinks.length > 1) {
-            const pill = document.createElement("span");
-            pill.className = "page-pill";
-            pill.textContent = `পাতা ${idx + 1} / ${rawLinks.length}`;
-            media.appendChild(pill);
+            const badge = document.createElement("span");
+            badge.className = "page-badge";
+            badge.textContent = `পাতা ${idx + 1} / ${rawLinks.length}`;
+            media.appendChild(badge);
           }
 
           const driveId = getGoogleDriveId(link);
@@ -947,7 +1238,8 @@
             card.appendChild(createActionBar(link, link));
           }
 
-          menuContainer.appendChild(card);
+          frame.appendChild(card);
+          menuContainer.appendChild(frame);
         });
       }
 
